@@ -2,18 +2,97 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src='script.js' defer></script>
-	<title>Lab 04</title>
-	<!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script src="script.js" defer></script>
+	<title>Minimal Todo list</title>
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
 </head>
+<style>
+	@font-face {
+		font-family: text;
+		src: url('font/Porter\ Bold.ttf')
+	}
 
-<body>
-	<h1>Minimal Todo List</h1>
-	<input  type='text'>
-	<button>+</button>
+	.font1 {
+		font-family: text;
+		font-size: medium;
+	}
+
+	ul li {
+		cursor: pointer;
+		position: relative;
+		padding: 12px 8px 12px 40px;
+		list-style-type: none;
+		background: #eee;
+		font-size: 18px;
+		transition: 0.2s;
+	}
+
+	.donebutton {
+		background-color: none;
+		border: none;
+		color: #68BD8B;
+		padding: 5px 15px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin-left: 400px;
+		align-items: flex-end;
+	}
+
+	.deletebutton {
+		background-color: none;
+		border: none;
+		color: #DE7676;
+		padding: 5px 10px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		align-items: flex-end;
+	}
+
+	ul li.checked {
+		background: #5D5D5E;
+		color: #fff;
+		text-decoration: line-through;
+	}
+
+	ul li.checked::before {
+		content: "";
+		position: absolute;
+		border-color: #fff;
+		border-style: solid;
+		border-width: 0 2px 2px 0;
+		top: 10px;
+		left: 16px;
+		transform: rotate(45deg);
+		height: 15px;
+		width: 7px;
+	}
+</style>
+
+<body class="font1">
+	<div class="bg-auto bg-cover bg-no-repeat pt-24">
+
+		<div class="text-center text-xl font-semibold pb-14">Minimal Todo list</div>
+		<div class="flex max-w-screen-sm mx-auto">
+			<input class="bg-gray-300 rounded mx-3" type="text" size="48" id="myTodo">
+
+			<button onclick="myOnClick()"
+				class="bg-gray-700 hover:bg-gray-600 text-white font-bold px-3 py-2 rounded bg-opacity-75">+</button>
+		</div>
+		<p id="myTodoList"></p>
+		<div class="pt-14">
+			<div class="bg-white max-w-screen-sm mx-auto rounded-md ring-1 ring-gray-300">
+				<div class="flex p-4">
+					<ul class="w-full" id="myList"></ul>
+				</div>
+			</div>
+		</div>
 </body>
 
 </html>
